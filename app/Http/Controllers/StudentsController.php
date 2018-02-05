@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Student;
+use Illuminate\Support\Facades\Auth;
 class StudentsController extends Controller
 {
     /**
@@ -13,7 +14,12 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $userID = $user->userID;
+        $students = Student::where('userID',$userID)->get();
+       // $student = Student::all();
+
+        return view('students.dashboard',['uss' => $students]);
     }
 
     /**
@@ -24,6 +30,7 @@ class StudentsController extends Controller
     public function create()
     {
         //
+        return view('master');
     }
 
     /**
