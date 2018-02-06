@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -47,6 +48,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $yr = $data['year'];
+        $rl = $data['roll'];
+        $sn = $data['section'];
+        $cs = $data['class'];
+        $uD = $yr.'-'.$rl.'-'.$sn.'-'.$cs;
+        $data['userID']=$uD;
         return Validator::make($data, [
             'userID' => 'required|string|max:255|unique:users',
             'role' => 'required|string|max:255',
@@ -63,6 +70,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $year = $data['year'];
+        $roll = $data['roll'];
+        $section = $data['section'];
+        $class = $data['class'];
+        $userID = $year.'-'.$roll.'-'.$section.'-'.$class;
+        $data['userID']=$userID;
+
+        Student::create([
+            'userID' => $data['userID'],
+            'name' => $data['name'],
+            'gender' => $data['gender'],
+            'dob' => $data['dob'],
+            'roll' => $data['roll'],
+            'section' => $data['section'],
+            'shift' => $data['shift'],
+            'class' => $data['class'],
+            'year' => $data['year'],
+            'mother' => $data['mother'],
+            'father' => $data['father'],
+            'contact' => $data['contact'],
+            'address' => $data['address'],
+        ]);
         return User::create([
             'userID' => $data['userID'],
             'role' => $data['role'],
