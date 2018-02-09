@@ -36,7 +36,42 @@
                                 @endif
                             </div>
                         </div>
+
+
+
+
+
+
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                        <label for="gender" class="col-md-4 control-label">Gender</label>
+                        <div class="col-md-6">
+                          <div id="gender" class="btn-group" data-toggle="buttons">
+
+                            <label class="btn btn-success">
+                              <input type="radio" name="gender" value="Male"> Male
+                            </label>
+                            
+                            <label class="btn btn-success">
+                              <input type="radio" name="gender" value="Female"> Female
+                            </label>
+
+                            <label class="btn btn-success">
+                              <input type="radio" name="gender" value="Others"> Others
+                            </label>
+                          </div>
+                          @if ($errors->has('gender'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                      </div>
+
+
+
+
+
+<!--                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                             <label for="gender" class="col-md-4 control-label">Gender</label>
 
                             <div class="col-md-6">
@@ -52,7 +87,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group{{ $errors->has('dob') ? ' has-error' : '' }}">
                             <label for="dob" class="col-md-4 control-label">Date of Birth</label>
 
@@ -84,41 +119,59 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('section') ? ' has-error' : '' }}">
-                            <label for="section" class="col-md-4 control-label">Section</label>
+                        <label for="section" class="col-md-4 control-label">Section</label>
+                        <div class="col-md-6">
+                          <div id="section" class="btn-group" data-toggle="buttons">
 
-                            <div class="col-md-6">
-                                <select id="section" type="text" class="form-control" name="section" value="{{ old('section') }}" required autofocus>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="N/A">N/A</option>
-                                </select>
+                            <label class="btn btn-success">
+                              <input type="radio" name="section" value="A"> A
+                            </label>
+                            
+                            <label class="btn btn-success">
+                              <input type="radio" name="section" value="B"> B
+                            </label>
 
-                                @if ($errors->has('section'))
+                            <label class="btn btn-success">
+                              <input type="radio" name="section" value="C"> C
+                            </label>
+
+                            <label class="btn btn-danger">
+                              <input type="radio" name="section" value="N/A"> N/A
+                            </label>
+                          </div>
+                          @if ($errors->has('section'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('section') }}</strong>
                                     </span>
                                 @endif
-                            </div>
                         </div>
-                        <div class="form-group{{ $errors->has('shift') ? ' has-error' : '' }}">
-                            <label for="shift" class="col-md-4 control-label">Shift</label>
+                      </div>
 
-                            <div class="col-md-6">
-                                <select id="shift" type="text" class="form-control" name="shift" value="{{ old('shift') }}" required autofocus>
-                                    <option value="Morning">Morning</option>
-                                    <option value="Day">Day</option>
-                                    
-                                    <option value="N/A">N/A</option>
-                                </select>
-                                @if ($errors->has('shift'))
+                      <div class="form-group{{ $errors->has('shift') ? ' has-error' : '' }}">
+                        <label for="shift" class="col-md-4 control-label">Shift</label>
+                        <div class="col-md-6">
+                          <div id="shift" class="btn-group" data-toggle="buttons">
+
+                            <label class="btn btn-success">
+                              <input type="radio" name="shift" value="Morning"> Morning
+                            </label>
+                            
+                            <label class="btn btn-success">
+                              <input type="radio" name="shift" value="Day"> Day
+                            </label>
+
+                            <label class="btn btn-danger">
+                              <input type="radio" name="shift" value="N/A"> N/A
+                            </label>
+                          </div>
+                          @if ($errors->has('shift'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('shift') }}</strong>
                                     </span>
                                 @endif
-                            </div>
                         </div>
+                      </div>
+                        
                         <div class="form-group{{ $errors->has('class') ? ' has-error' : '' }}">
                             <label for="class" class="col-md-4 control-label">Class</label>
 
@@ -225,7 +278,7 @@
                         </div>
                         <div class="form-group{{ $errors->has('userID') ? ' has-error' : '' }}">
                             <div class="col-md-6">
-                                <input id="userID" type="hidden" class="form-control" name="userID" value="{{ old('userID') }}" required autofocus>
+                                <input id="userID" type="hidden" class="form-control" name="userID" value="XXXX" required autofocus>
 
                                 @if ($errors->has('userID'))
                                     <span class="help-block">
@@ -258,6 +311,7 @@
 
 
 
+                        
 
 
 
