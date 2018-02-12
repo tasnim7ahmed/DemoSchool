@@ -310,29 +310,47 @@
 
 
 
-                <div class="form-group">
-                  <label for="first" class="col-sm-4 control-label">First Term Mark</label>
+                <div class="form-group{{ $errors->has('first_term') ? ' has-error' : '' }}">
+                            <label for="first_term" class="col-sm-4 control-label">First Term Marks</label>
 
-                  <div class="col-sm-8">
-                    <input type="number" min="1" max="100" class="form-control" id="first_term" placeholder="Total marks for this course on First Term Exam">
-                  </div>
-                </div>
+                            <div class="col-sm-8">
+                                <input  type="number" min="1" max="100" class="form-control"  name="first_term" value="{{ old('first_term') }}" placeholder="" required autofocus>
 
-                <div class="form-group">
-                  <label for="second" class="col-sm-4 control-label">Second Term Mark</label>
+                                @if ($errors->has('first_term'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('first_term') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
-                  <div class="col-sm-8">
-                    <input type="number" min="1" max="100" class="form-control" id="second_term" placeholder="Total marks for this course on Second Term Exam">
-                  </div>
-                </div>
+                <div class="form-group{{ $errors->has('second_term') ? ' has-error' : '' }}">
+                            <label for="second_term" class="col-sm-4 control-label">Second Term Marks</label>
 
-                <div class="form-group">
-                  <label for="third" class="col-sm-4 control-label">Final Term Mark</label>
+                            <div class="col-sm-8">
+                                <input  type="number" min="1" max="100" class="form-control"  name="second_term" value="{{ old('second_term') }}" placeholder="" required autofocus>
 
-                  <div class="col-sm-8">
-                    <input type="number" min="1" max="100" class="form-control" id="third_term" placeholder="Total marks for this course on Final Term Exam">
-                  </div>
-                </div>
+                                @if ($errors->has('second_term'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('second_term') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+<div class="form-group{{ $errors->has('third_term') ? ' has-error' : '' }}">
+                            <label for="third_term" class="col-sm-4 control-label">Final Term Marks</label>
+
+                            <div class="col-sm-8">
+                                <input  type="number" min="1" max="100" class="form-control"  name="third_term" value="{{ old('third_term') }}" placeholder="" required autofocus>
+
+                                @if ($errors->has('third_term'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('third_term') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                 
                 
