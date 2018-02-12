@@ -264,29 +264,51 @@
             <form class="form-horizontal" method="POST" action="{{ route('create_course') }}">
               {{ csrf_field() }}
               <div class="box-body">
-                <div class="form-group">
-                  <label for="name" class="col-sm-4 control-label">Course Name</label>
 
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="name" placeholder="Enter the name of the Course">
-                  </div>
-                </div>
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-sm-4 control-label">Course Name</label>
 
-                <div class="form-group">
-                  <label for="class" class="col-sm-4 control-label">Class</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  name="name" value="{{ old('name') }}" placeholder="Enter Course Name" required autofocus>
 
-                  <div class="col-sm-8">
-                    <input type="number" min="1" max="12" class="form-control" id="class" placeholder="Course Belongs to this Class only">
-                  </div>
-                </div>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                  <label for="teacher" class="col-sm-4 control-label">Teacher's Name</label>
 
-                  <div class="col-sm-8">
-                    <input type="text" class="form-control" id="teacher_id" placeholder="Enter the name of Teacher">
-                  </div>
-                </div>
+                <div class="form-group{{ $errors->has('class') ? ' has-error' : '' }}">
+                            <label for="class" class="col-sm-4 control-label">Class</label>
+
+                            <div class="col-sm-8">
+                                <input  type="number" min="1" max="12" class="form-control"  name="class" value="{{ old('class') }}" placeholder="Course Belongs to this Class only" required autofocus>
+
+                                @if ($errors->has('class'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('class') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('teacher_id') ? ' has-error' : '' }}">
+                            <label for="teacher_id" class="col-sm-4 control-label">Teacher's Name</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control"  name="teacher_id" value="{{ old('teacher_id') }}" placeholder="Enter Teacher's Name" required autofocus>
+
+                                @if ($errors->has('teacher_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('teacher_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
 
                 <div class="form-group">
                   <label for="first" class="col-sm-4 control-label">First Term Mark</label>

@@ -48,6 +48,7 @@ class CourseController extends Controller
             'second_term' => $request['second_term'],
             'third_term' => $request['third_term'],
         ]);
+        //return 'Hello World';
     }
 
     /**

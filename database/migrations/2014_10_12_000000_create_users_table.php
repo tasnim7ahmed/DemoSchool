@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
         });
     }
 
+    // DB::table('users')->insert(['userID'=>'admin','password'=>bcrypt('admin'),'role'=>'admin']);
+
     /**
      * Reverse the migrations.
      *
