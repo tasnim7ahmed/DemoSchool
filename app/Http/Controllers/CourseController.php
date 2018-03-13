@@ -19,7 +19,7 @@ class CourseController extends Controller
 
     public function index()
     {
-        //
+        return view('admin.view_course');
     }
 
     /**
@@ -40,7 +40,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        return Course::create([
+        Course::create([
             'name' => $request['name'],
             'class' => $request['class'],
             'teacher_id' => $request['teacher_id'],
@@ -48,6 +48,7 @@ class CourseController extends Controller
             'second_term' => $request['second_term'],
             'third_term' => $request['third_term'],
         ]);
+        return view('admin.create_course');
         //return 'Hello World';
     }
 

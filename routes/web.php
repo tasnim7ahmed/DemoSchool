@@ -23,4 +23,5 @@ Auth::routes();
 Route::get('/home','AdminController@index');
 Route::get('/home/create_course','CourseController@create');
 Route::post('/home/create_course','CourseController@store')->name('create_course');
+Route::get('/home/view_course','CourseController@index');
 

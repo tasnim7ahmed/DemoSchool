@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +10,7 @@
   <link rel="stylesheet" href="{{asset('adminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('adminLTE/bower_components/font-awesome/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('adminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{asset('adminLTE/bower_components/Ionicons/css/ionicons.min.css')}}">
   <!-- Theme style -->
@@ -178,8 +178,9 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">Welcome, ADMIN</li>
-          <li class="active treeview"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-          <li class="treeview">
+          
+          <li><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li class="active treeview">
             <a href="#">
               <i class="fa fa-th-large"></i>
               <span>Courses</span>
@@ -187,7 +188,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
-            <ul class="treeview-menu">
+            <ul class="active treeview-menu">
               <li><a href="/home/create_course"><i class="fa fa-circle-o text-yellow"></i> Add Course</a></li>
               <li><a href="/home/view_course"><i class="fa fa-circle-o text-green"></i> View Course</a></li>
             </ul>
@@ -242,7 +243,87 @@
   <!-- /.content-wrapper -->
 
 
-@yield('body')
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        COURSES
+        <small>View All Courses</small>
+      </h1>
+
+
+
+
+
+
+
+
+      <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data Table With Full Features</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Course Name</th>
+                  <th>Class</th>
+                  <th>Teacher's Name</th>
+                  <th>First Term Marks</th>
+                  <th>Second Term Marks</th>
+                  <!-- <th>Final Term Name</th> -->
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                  <td>Trident</td>
+                  <td>Internet
+                    Explorer 4.0
+                  </td>
+                  <td>Win 95+</td>
+                  <td> 4</td>
+                  <td>X</td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+    <section class="content">  
+      <!-- Main content -->
+      
+          <!-- Horizontal Form -->
+          
+
+    </section>
+
+  </div>
 
 
   <!--   Control SideBar Goes Here. tasnim-->
@@ -291,5 +372,23 @@
 <script src="{{asset('adminLTE/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adminLTE/dist/js/demo.js')}}"></script>
+<!-- DataTables -->
+<script src="{{asset('adminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('adminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+
 </body>
 </html>
